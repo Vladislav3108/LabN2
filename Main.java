@@ -14,7 +14,7 @@ public class Main {
 
         //создание вспомогательных переменных
         int ind;
-        int sum = 0;
+        double sum = 0;
         int min;
         int max;
         double norm;
@@ -23,7 +23,7 @@ public class Main {
 
 
         //создание основного и вспомогательных массивов
-        int[][] a = new int[N][M];
+        double[][] a = new double[N][M];
         int[] gist = new int [Math.abs(N-M)/10+2];
         double[][] sorted = new double[N][M];
         double [] med = new double [N*M];
@@ -41,7 +41,7 @@ public class Main {
         for (int j = 0; j < M; j++) {
             for (int i = 0; i < N; i++)
                 sum += a[i][j];
-            sr[0][j] = (double) sum / N;
+            sr[0][j] = sum / N;
             sr[2][j] = j;
             sum = 0;
         }
@@ -119,7 +119,7 @@ public class Main {
         //нахождение медианы элементов исходного массива на основе отсортированного массива med
         int help = N*M/2;
         if (N*M%2 != 0)
-            out.print("Медиана последовательности = "+ med[help+1]);
+            out.print("Медиана последовательности = "+ med[help]);
         else
             out.print("Медиана последовательности = "+ (med[help+1]+med[help])/2);
         out.println();
